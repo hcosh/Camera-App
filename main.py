@@ -32,12 +32,30 @@ def read_root():
     <html>
     <head>
         <title>Camera Feed</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+            h1 {
+                color: #333;
+            }
+            img {
+                border: 2px solid #333;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
     <body>
         <h1>Live Camera Feed</h1>
-        <img src="/video_feed" width="640" height="480"/>
-        <button onclick="startRecording()">Start Recording</button>
-        <button onclick="stopRecording()">Stop Recording</button>
+        <img src="/video_feed" width="640" height="480" class="img-fluid"/>
+        <button class="btn btn-success btn-lg m-2" onclick="startRecording()">Start Recording</button>
+        <button class="btn btn-danger btn-lg m-2" onclick="stopRecording()">Stop Recording</button>
         <script>
             function startRecording() {
                 fetch('/start_recording', {method: 'POST'});
